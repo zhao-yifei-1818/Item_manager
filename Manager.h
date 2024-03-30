@@ -12,8 +12,6 @@ public:
   void addItem(const Item& item);
   void printAllItems() const;
   void exportToFile(const std::string& filename) const;
-  void readFromFile(const std::string& filename);
-
 };
 
 #endif // MANAGER_H
