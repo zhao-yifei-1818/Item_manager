@@ -12,6 +12,7 @@ int main()
     std::cout << "Input an Action number:\n1: Add Item\n2: Load from "
                  "Item.txt3: printAll()4: Export to Item.txt\nInput: "
               << std::endl;
+    std::cin >> selection;
     if (selection == 1) {
       std::cout << "Enter item details (recipient, value, date, cost to ship) "
                    "separated by spaces: ";
