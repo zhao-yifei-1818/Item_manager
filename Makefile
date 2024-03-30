@@ -4,10 +4,10 @@ CXXFLAGS += -std=c++17 -pedantic -pedantic-errors
 CXXFLAGS += -Wfloat-equal -Wredundant-decls -Wshadow -Wconversion
 
 # list .h files here
-HEADERS = *.h
+HEADERS =
 
 # list .cpp files here
-PROGRAM_FILES = *.cpp
+PROGRAM_FILES = main.cpp
 
 .PHONY: all
 all: program.exe

@@ -30,7 +30,7 @@ int Item::getCostToShip() const
 {
   return costToShip;
 }
-double Item::getReward() const
+int Item::getReward() const
 {
   return reward;
 }
