@@ -1,4 +1,5 @@
 #include "Item.h"
+#include <iostream>
 
 Item::Item():
     recipient("Unknown"), value(0), date(0), costToShip(0), reward(0.0)
