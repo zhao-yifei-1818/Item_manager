@@ -27,7 +27,6 @@ int main()
       std::cout << "Enter item details (recipient, value, date, cost to ship) "
                    "separated by spaces: ";
       std::getline(std::cin, line);
-
       std::stringstream ss(line);
       std::string recipient;
       int value, date, costToShip;
