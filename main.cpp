@@ -1,3 +1,4 @@
+#include "Item.h"
 #include "Manager.h"
 #include <iostream>
 #include <limits>
