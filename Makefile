@@ -4,10 +4,10 @@ CXXFLAGS += -std=c++17 -pedantic -pedantic-errors
 CXXFLAGS += -Wfloat-equal -Wredundant-decls -Wshadow -Wconversion
 
 # list .h files here
-HEADERS =
+HEADERS = Item.h Manager.h
 
 # list .cpp files here
-PROGRAM_FILES = main.cpp
+PROGRAM_FILES = main.cpp Item.cpp Manager.cpp
 
 .PHONY: all
 all: program.exe
