@@ -10,7 +10,7 @@ int main()
   int selection = 5;
   while (selection != 0) {
     std::cout << "Input an Action number:\n1: Add Item\n2: Load from "
-                 "Item.txt3: printAll()4: Export to Item.txt\nInput: "
+                 "Item.txt\n3: printAll()\n4: Export to Item.txt\nInput: "
               << std::endl;
     std::cin >> selection;
     if (selection == 1) {
