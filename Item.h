@@ -19,7 +19,7 @@ public:
   int getValue() const;
   int getDate() const;
   int getCostToShip() const;
-  int getReward() const;
+  double getReward() const;
 
   // Additional member functions
   void calculateReward();
