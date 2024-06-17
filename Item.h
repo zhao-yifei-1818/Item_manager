@@ -2,14 +2,23 @@
 #define ITEM_H
 
 #include <string>
-
+class Person{
+  private:
+  Item* item;
+  std::string name;
+  double pay;
+  public:
+  Person();
+  Person(std::string name);
+  int getItem();
+  double getPay();
+  
+};
 class Item {
 private:
-  std::string recipient;
   int value;
-  int date; // Format: mmddyy
+  std::string date;
   int costToShip;
-  double reward;
 
 public:
   Item();
