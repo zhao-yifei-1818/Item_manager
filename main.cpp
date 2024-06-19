@@ -1,4 +1,4 @@
-#include "Item.h"
+#include "package.h"
 #include "Manager.h"
 #include <iostream>
 #include <limits>
@@ -12,10 +12,10 @@ int main()
 
   while (selection != 0) {
     std::cout << "Input an Action number:\n"
-              << "1: Add Item\n"
-              << "2: Load from items.txt\n"
-              << "3: Print All Items\n"
-              << "4: Export to items.txt\n"
+              << "1: Add package\n"
+              << "2: Load from packages.txt\n"
+              << "3: Print All packages\n"
+              << "4: Export to packages.txt\n"
               << "0: Exit\n"
               << "Input: ";
     std::cin >> selection;
@@ -24,27 +24,26 @@ int main()
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     if (selection == 1) {
-      std::cout << "Enter item details (recipient, value, date, cost to ship) "
+      std::cout << "Enter package details (value, date, cost to ship) "
                    "separated by spaces: ";
       std::getline(std::cin, line);
       std::stringstream ss(line);
-      std::string recipient;
-      int value, date, costToShip;
+      double value, shippingCost;
+      std::string date;
+      ss >> value >> date >> shippingCost;
 
-      ss >> recipient >> value >> date >> costToShip;
+      Package newpackage(value, date, shippingCost);
+      manager.addPackage(newpackage);
 
-      Item newItem(recipient, value, date, costToShip);
-      manager.addItem(newItem);
-
-      std::cout << "Item added successfully.\n";
+      std::cout << "package added successfully.\n";
     } else if (selection == 2) {
-      manager.readFromFile("items.txt");
-      std::cout << "Items loaded from items.txt.\n";
+      manager.readFromFile("packages.txt");
+      std::cout << "packages loaded from packages.txt.\n";
     } else if (selection == 3) {
-      manager.printAllItems();
+      manager.printAllpackages();
     } else if (selection == 4) {
-      manager.exportToFile("items.txt");
-      std::cout << "Items exported to items.txt.\n";
+      manager.exportToFile("packages.txt");
+      std::cout << "packages exported to packages.txt.\n";
     } else if (selection != 0) {
       std::cout << "Invalid selection. Please try again.\n";
     }
