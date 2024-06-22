@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <fstream>
 class Person{
   public:
   //constructor
@@ -23,7 +22,7 @@ class Person{
     //print single person's everything
   void printThisPerson()const;
     //output single person's everything
-  void printThisPersonOstream(std::ostream)const;
+  void printThisPersonOstream(std::ostream& out)const;
   private:
   //person has a list of packages
   std::vector<Package> packageList;
@@ -54,7 +53,7 @@ public:
 //administration functions
   //print this single package
   void printThisPackage() const;
-  void printThisPackageOstream(std::ostream out)const;
+  void printThisPackageOstream(std::ostream& out)const;
 private:
   double value;
   std::string date;

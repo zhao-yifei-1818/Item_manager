@@ -39,14 +39,13 @@ void Manager::exportToFile(const std::string& filename) const
 
   for (const auto& person : personList) {
     person.printThisPersonOstream(outFile);
-    // fix here or give industrial level advice
   }
-  
 
   outFile.close();
   std::cout << "package details exported to " << filename << std::endl;
 }
 
+//need further attention
 void Manager::readFromFile(const std::string& filename)
 {
   std::ifstream inFile(filename);
@@ -60,7 +59,6 @@ void Manager::readFromFile(const std::string& filename)
   std::string date;
   while (inFile >> value >> date >> shippingCost) {
     Package newPackage (value, date, shippingCost);
-    addPackage(newPackage);
   }
 
   inFile.close();

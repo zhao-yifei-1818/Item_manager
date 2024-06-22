@@ -12,10 +12,10 @@ int main()
 
   while (selection != 0) {
     std::cout << "Input an Action number:\n"
-              << "1: Add package\n"
-              << "2: Load from packages.txt\n"
-              << "3: Print All packages\n"
-              << "4: Export to packages.txt\n"
+              << "1: Print All Current File\n"
+              << "X2: Add package\n"
+              << "X3: Load from packages.txt\n"
+              << "X4: Export to packages.txt\n"
               << "0: Exit\n"
               << "Input: ";
     std::cin >> selection;
@@ -24,6 +24,8 @@ int main()
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     if (selection == 1) {
+      manager.printAllpersons();
+    } else if (selection == 2) {
       std::cout << "Enter package details (value, date, cost to ship) "
                    "separated by spaces: ";
       std::getline(std::cin, line);
@@ -34,13 +36,13 @@ int main()
 
       Package newpackage(value, date, shippingCost);
       manager.addPackage(newpackage);
+            std::cout << "package added successfully.\n";
 
-      std::cout << "package added successfully.\n";
-    } else if (selection == 2) {
-      manager.readFromFile("packages.txt");
+      
       std::cout << "packages loaded from packages.txt.\n";
     } else if (selection == 3) {
-      manager.printAllpackages();
+      manager.readFromFile("packages.txt");
+      
     } else if (selection == 4) {
       manager.exportToFile("packages.txt");
       std::cout << "packages exported to packages.txt.\n";

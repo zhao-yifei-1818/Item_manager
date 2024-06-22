@@ -47,12 +47,11 @@ void Package::printThisPackage() const
   std::cout <<"Value: " << value
             << ", Date: " << date << ", Cost to Ship: " << shippingCost<<std::endl;
 }
-void Package::printThisPackageOstream(std::ostream out) const
+void Package::printThisPackageOstream(std::ostream& out) const
 {
   out <<"Value: " << value
             << ", Date: " << date << ", Cost to Ship: " << shippingCost<<std::endl;
 }
-// void Person::printThisPersonOstream(std::ostream out)const
 
 Person::Person():name("Nobody"),pay(0),payLevel(0){}
 Person::Person(std::string newName):name(newName),pay(0),payLevel(0){}
@@ -96,7 +95,7 @@ void Person::addReward(double reward)
       ++index;
     }
   }
-  void Person::printThisPersonOstream(std::ostream out)const{
+  void Person::printThisPersonOstream(std::ostream& out)const{
     out <<"Name: " << name
             << ", Pay: " << pay << ", Pay level: " <<
              payLevel<< ", Package count: " << packageCount <<
@@ -105,7 +104,7 @@ void Person::addReward(double reward)
     int index = 1;
     for (const auto& obj : packageList) {
       out<< "\tIndex: " << index<<"Package count" <<std::endl;
-      obj.printThisPackage();
+      obj.printThisPackageOstream(out);
       ++index;
     }
   }
