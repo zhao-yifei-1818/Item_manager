@@ -1,17 +1,31 @@
 #include "Manager.h"
 #include <fstream>
 #include <iostream>
-//one package is pushed to manager vector.
-void Manager::addPackage(const Package& package)
+
+
+//one person is pushed to manager vector.
+void Manager::addPerson(const Person& person)
 {
-  packages.push_back(package);
+  personList.push_back(person);
 }
 
 //This list of packages is all printed
 void Manager::printAllpackages() const
 {
-  for (const auto& package : packages) {
-    package.printThisPackage();
+  for (const auto& person : personList) {
+    int index = 1;
+    for (const auto& package : person.getPackageList()) {
+      std::cout<< "\tIndex: " << index<<"Package details:" <<std::endl;
+      package.printThisPackage();
+      ++index;
+    }
+  }
+}
+//This list of persons is all printed
+void Manager::printAllpersons() const
+{
+  for (const auto& person : personList) {
+    person.printThisPerson();
   }
 }
 
@@ -23,11 +37,11 @@ void Manager::exportToFile(const std::string& filename) const
     return;
   }
 
-  for (const auto& package : packages) {
-    outFile << package.getValue() << " "
-            << package.getDate() << " " 
-            << package.getShippingCost() << std::endl;
+  for (const auto& person : personList) {
+    person.printThisPersonOstream(outFile);
+    // fix here or give industrial level advice
   }
+  
 
   outFile.close();
   std::cout << "package details exported to " << filename << std::endl;

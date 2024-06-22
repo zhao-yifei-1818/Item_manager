@@ -2,27 +2,41 @@
 #define PACKAGE_H
 
 #include <string>
-/*
+#include <vector>
+#include <iostream>
+#include <fstream>
 class Person{
   public:
   //constructor
   Person();
-  Person(std::string name);
-
-  //c ctor
+  Person(std::string newName);
 
   //get functions
-  int getPackage();
-  double getPay();
-  std::string getName();
-  
+  std::vector<Package> getPackageList()const;
+  double getPay()const;
+  std::string getName()const;
+  int getPackageCount()const;
+  //utility functions
+    //reward is added to the person depending on his payLevel.
+  void addReward(double reward);
+  //administration functions
+    //print single person's everything
+  void printThisPerson()const;
+    //output single person's everything
+  void printThisPersonOstream(std::ostream)const;
   private:
-  Package* package;
+  //person has a list of packages
+  std::vector<Package> packageList;
+  //person's name
   std::string name;
+  //person's accumulated pay so far.
   double pay;
-  int package_count;
+  //person's pay level, represented as number;
+  int payLevel;
+  //person's package count
+  int packageCount;
 };
-*/
+
 class Package {
 public:
   //Constructors
@@ -34,10 +48,13 @@ public:
   std::string getDate() const;
   double getShippingCost() const;
 
-  // Additional member functions
-  void printThisPackage() const;
+  //return its total reward as a number.
   double calculateReward() const;
-
+  // Additional member functions
+//administration functions
+  //print this single package
+  void printThisPackage() const;
+  void printThisPackageOstream(std::ostream out)const;
 private:
   double value;
   std::string date;
